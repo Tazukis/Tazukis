@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tazuki Pro</title>
+    <meta content="Chào tui là TazukiVN ;-;" property="og:title" />
+    <meta content="Welcome đã đến với trang của tôi :3" property="og:description" />
+    <meta content="/assets/images/avatar.png" property="og:url" />
+    <meta content="/assets/images/avatar.png" property="og:image" />
+    <meta content="#d4a563" data-react-helmet="true" name="theme-color" />
+    <link rel="shortcut icon" href="assets/images/icon.png" type="image/png">
+    <script src="https://sindresorhus.com/devtools-detect/index.js"></script>
+    <link rel="stylesheet" href="assets/fonts/gothampro/style.css">
+    <link rel="stylesheet" href="assets/vars.css">
+    <link rel="stylesheet" href="assets/css/index/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hover.css/css/hover.css">
+    <script src="assets/js/jparticles.js"></script>
+    <script src="assets/js/particle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="assets/js/text.js"></script>
+    <script src="assets/js/typed.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('assets/images/bg.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            cursor: url('assets/images/kokomi_normal.cur'), auto; /* Thêm kiểu chuột cho toàn bộ trang */
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile {
+            text-align: center;
+            position: relative;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .avatar-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .avatar {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .info {
+            margin-top: 20px;
+        }
+
+        .info h2,
+        .info h3,
+        .info hr {
+            margin: 10px 0;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            width: 100%;
+            justify-content: space-evenly;
+        }
+
+        .link,
+        .neonix-link,
+        .music-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 20px;
+            text-align: left;
+            width: fit-content;
+        }
+
+        .link:hover,
+        .neonix-link:hover,
+        .music-link:hover,
+        .link span:hover,
+        .neonix-link span:hover,
+        .music-link span:hover {
+            color: #ff0000;
+        }
+
+        .discord-icon {
+            font-size: 24px;
+            margin-right: 8px;
+            transition: color 0.3s;
+            color: #7289da;
+        }
+
+        .discord-icon:hover {
+            color: #ff0000;
+        }
+
+        .facebook-icon {
+            font-size: 24px;
+            margin-right: 8px;
+            transition: color 0.3s;
+            color: #1877f2; /* Đổi màu icon Facebook thành màu xanh */
+        }
+
+        .facebook-icon:hover {
+            color: #ff0000; /* Màu đỏ khi hover */
+        }
+
+        .container:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid #1877f2;
+            border-radius: 12px;
+            transition: transform 0.3s ease-out;
+            z-index: -1;
+        }
+
+        .container:hover:before {
+            transform: scale(1.05);
+        }
+
+        .decoration-image-right {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: url('assets/images/right-image.gif') center/cover;
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        .decoration-image-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: url('assets/images/28eW.gif') center/cover;
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        .decoration-image {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: url('assets/images/cute.gif') center/cover;
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        .neonix-link,
+        .music-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 20px;
+            text-align: left;
+            width: fit-content;
+        }
+
+        .neonix-link:hover,
+        .music-link:hover {
+            background-color: #fff;
+            color: #ff0000;
+        }
+
+        .neonix-link i,
+        .music-link i {
+            font-size: 24px;
+            margin-right: 8px;
+            color: #000;
+        }
+    </style>
+    <meta name="theme-color" content="#d4a563">
+</head>
+<body class="custom-cursor">
+    <audio id="background-music" loop>
+        <source src="assets/music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div id="particles" style="position: fixed; width: 100%; height: 100%;"></div>
+
+    <div class="container">
+        <div class="profile">
+            <div class="avatar-container">
+                <img src="assets/images/avatar.png" oncontextmenu="return false;" class="avatar">
+            </div>
+            <h2>Phan Minh Phát (TazukiVN)</h2>
+            <hr>
+            <h3><span class="typed">fet</span><span class="typed-cursor">|</span></h3>
+            <hr>
+            <div class="buttons">
+                <div class="social-link">
+                    <a href="https://discord.com/users/1137695425894293534" class="link">
+                        <i class="fab fa-discord discord-icon"></i>
+                        <span>My Discord</span>
+                    </a>
+                    <a href="https://www.facebook.com/tazukivn" class="link">
+                        <i class="fab fa-facebook facebook-icon"></i>
+                        <span>Phan Minh Phát</span>
+                    </a>
+                </div>
+                <div class="social-link">
+                    <a href="https://discord.gg/XTCNqSN26U" class="neonix-link">
+                        <i class="neonix-icon">🎮</i>
+                        <span>NeoNixMC</span>
+                    </a>
+                    <a href="#" class="music-link" id="play-music">
+                        <i class="neonix-icon">🎵</i>
+                        <span>Nhạc Yêu Thích</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="decoration-image-right"></div>
+    <div class="decoration-image-left"></div>
+    <div class="decoration-image"></div>
+
+    <script src="assets/js/jparticles.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var audio = document.getElementById("background-music");
+            audio.play();
+
+            var playButton = document.getElementById("play-music");
+            playButton.addEventListener("click", function() {
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            });
+
+            new JParticles.particle('#particles', {
+                color: ['white', '#dee0e0'],
+                proximity: 120,
+                range: 150,
+                parallax: true
+            });
+        });
+    </script>
+</body>
+</html>
+
